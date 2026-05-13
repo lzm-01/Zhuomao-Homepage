@@ -525,44 +525,44 @@ body.theme-luka strong {
     font-size: 13px;
   }
 }
-/* 论文列表：左侧文字 + 右侧图片 */
+/* 论文列表：图片在作者下方 */
 .pub-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .pub-content {
-  flex: 1;
-  min-width: 200px;
+  width: 100%;
 }
 
 .pub-image {
-  flex-shrink: 0;
-  width: 120px;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 500px;  /* 控制最大宽度 */
 }
 
 .pub-image img {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: transparent;
   transition: transform 0.2s;
 }
 
 .pub-image img:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
-/* 手机端适配：图片显示在文字下方 */
+/* 深色模式适配 */
+[data-theme="dark"] .pub-image img {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 手机端适配 */
 @media (max-width: 600px) {
-  .pub-row {
-    flex-direction: column;
-  }
   .pub-image {
-    width: 100%;
-    max-width: 200px;
-    margin-top: 10px;
+    max-width: 100%;
   }
 }
